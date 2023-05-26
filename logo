@@ -1,0 +1,26 @@
+<html><head>
+<script language="javascript">
+var boom = 0;
+var count = 0;
+var hd = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F');
+function toHex(dec){  return hd[Math.floor(dec/16)]+''+hd[dec%16];  }
+function clean() {  boom = count = 0;  document.forms[0].c.value = "Countdown!";  document.bgColor = "#FFFFFF"  }
+function make_boom() {
+if (boom >255) {setTimeout("clean()", 2000); return; }
+color="#FF"+toHex(255-boom)+toHex(255-boom);
+boom += 8;
+document.bgColor = color;
+setTimeout("make_boom()", 20);
+}
+function counter() {
+count -= 1;
+document.forms[0].c.value = '        '+count+'       ';
+if (count < 1) { make_boom();  return }
+setTimeout("counter()", 1000);
+}
+function countdown() {  if (count > 0 || boom > 0) return;  count = 6;  counter();  }
+</script>
+</head><body><center>
+<form><input type="button" name="c" value="Countdown!" size=20 onClick="countdown()"></form>
+<br><br><font size=7 color = "#FFFFFF">GO</font>
+</body></html>
