@@ -1,3 +1,2 @@
-# wera
-wera
-#candles
+#Japanese_candles
+candlestick chart
